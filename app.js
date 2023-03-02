@@ -11,12 +11,37 @@ console.log("Working"); //check app is working or not in console
 
 function renderList() {}
 
-function toggleTask(taskId) {}
+// function toggleTask(taskId) {}
 
-function deleteTask(taskId) {}
+function deleteHeroFromFavorite(taskId) {}
 
-function addTask(task) {}
+function addHeroInFavorite(task) {
+    
+}
 
 function showNotification(text) {
   alert(text);
 }
+
+function handleInputKeyPress(e) {
+  if (e.key === "Enter") {
+    const text = e.target.value;
+    console.log("text", text); // toheck function working
+
+    if (!text) {
+      showNotification("Text cant be empty");
+      return;
+    }
+
+    const task = {
+      text,
+      id: Date.now().toString(), //date converted to string
+      done: false, //boolean false by default
+    };
+
+    e.target.value = "";
+    addHeroInFavorite(task);
+  }
+}
+
+addTaskInput.addEventListener("keyup", handleInputKeyPress);
