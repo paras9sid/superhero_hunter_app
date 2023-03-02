@@ -8,9 +8,27 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Super Hero App</h1>
-    <button>Favorites</button>
-    <input type="search" placeholder="Enter Super Hero Name..." />
+    <div id="nav">
+      <h1>Super Hero App</h1>
+
+      <button>Favorites</button>
+    </div>
+    <div id="container">
+      <input
+        placeholder="Enter super hero name..."
+        class="add-task"
+        id="add"
+        data-helloWord="asdasdas"
+      />
+
+      <ul id="list">
+        <!-- <li>
+          <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
+          <label for="task1">Buy groceries</label>
+          <img src="bin.svg" class="delete" data-id="12" />
+        </li> -->
+      </ul>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
