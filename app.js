@@ -3,15 +3,27 @@
 
 let heroes = [];
 
-const tasksList = document.getElementById("list");
+const heroesList = document.getElementById("list");
 
-const addTaskInput = document.getElementById("add");
+const addHeroInput = document.getElementById("add");
 
-console.log("Working"); //check app is working or not in console
+console.log("Super hero app is Working"); //check app is working or not in console
 
 function renderList() {}
 
-// function toggleTask(taskId) {}
+function toggleHero(heroId) {
+  const hero = heroes.filter(function (hero) {
+    return hero.id === heroId;
+  });
+  if (hero.length > 0) {
+    const currentHero = hero[0];
+    currentHero.done = !currentHero.done;
+    renderList();
+    showNotification("Hero toggled successfully");
+    return;
+  }
+  showNotification("Hero not toggled");
+}
 
 function deleteHeroFromFavorite(heroId) {
   const newHeroes = heroes.filter(function (hero) {
@@ -57,4 +69,4 @@ function handleInputKeyPress(e) {
   }
 }
 
-addTaskInput.addEventListener("keyup", handleInputKeyPress);
+addHeroInput.addEventListener("keyup", handleInputKeyPress);
