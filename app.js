@@ -88,5 +88,22 @@ function handleInputKeyPress(e) {
     addHeroInFavorite(task);
   }
 }
+function handleClickListener(e) {
+  const target = e.target;
+  console.log(target); // find and display targeted element on mouse click in console.
+  if (target.className === "delete") {
+    const heroId = target.dataset.id;
+    deleteHeroFromFavorite(heroId);
+    return;
+  } else if (target.className === "custom-checkbox") {
+    const heroId = target.id;
+    toggleHero(heroId);
+    return;
+  }
+}
+function initializeApp() {
+  addHeroInput.addEventListener("keyup", handleInputKeyPress);
+  document.addEventListener("click", handleClickListener);
+}
 
-addHeroInput.addEventListener("keyup", handleInputKeyPress);
+initializeApp();
