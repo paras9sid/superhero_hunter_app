@@ -9,7 +9,27 @@ const addHeroInput = document.getElementById("add");
 
 console.log("Super hero app is Working"); //check app is working or not in console
 
-function renderList() {}
+function addHeroToDom(hero) {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <input type="checkbox" id="${hero.id}" ${
+    hero.done ? "checked" : ""
+  } class="custom-checkbox">
+    <label for="${hero.id}">${hero.text}</label>
+    <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" class="delete" data-id="${
+      hero.id
+    }" />
+  `;
+
+  heroesList.append(li);
+}
+
+function renderList() {
+  heroesList.innerHTML = "";
+  for (let i = 0; i < heroes.length; i++) {
+    addHeroToDom(heroes[i]);
+  }
+}
 
 function toggleHero(heroId) {
   const hero = heroes.filter(function (hero) {
